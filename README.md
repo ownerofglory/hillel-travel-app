@@ -1,5 +1,7 @@
 # Hillel Travel App
 
+![](https://github.com/ownerofglory/hillel-travel-app/actions/workflows/github-actions.yml/badge.svg)
+
 ## Overview
 The “Hillel Travel App” is an application where users can document and share their travel experiences. They can mark locations on a map, upload photos, write notes, and share with friends or the public.
 
