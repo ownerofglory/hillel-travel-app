@@ -3,6 +3,7 @@ package ua.ithillel.travelapp.model.entity;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "travelEntry")
 @Table(name = "t_travel_entry")
@@ -18,6 +19,15 @@ public class TravelEntry {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "travelEntry", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Location> locations;
+
+    @OneToMany(mappedBy = "travelEntry", fetch = FetchType.LAZY)
+    private List<Comment> comments;
+
+    @OneToMany(mappedBy = "travelEntry", fetch = FetchType.LAZY)
+    private List<Like> likes;
 
     public Long getId() {
         return id;
@@ -57,5 +67,40 @@ public class TravelEntry {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
+    }
+
+    @Override
+    public String toString() {
+        return "TravelEntry{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", entryDate=" + entryDate +
+                ", locations=" + locations +
+                '}';
     }
 }
