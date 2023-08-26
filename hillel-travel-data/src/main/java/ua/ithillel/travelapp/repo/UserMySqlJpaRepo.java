@@ -5,7 +5,7 @@ import jakarta.persistence.EntityManagerFactory;
 import ua.ithillel.travelapp.model.entity.User;
 
 public class UserMySqlJpaRepo implements UserRepo {
-    private EntityManagerFactory entityManagerFactory;
+    private final EntityManagerFactory entityManagerFactory;
 
     public UserMySqlJpaRepo(EntityManagerFactory entityManagerFactory) {
         this.entityManagerFactory = entityManagerFactory;
