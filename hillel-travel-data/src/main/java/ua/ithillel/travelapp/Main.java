@@ -5,10 +5,11 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import ua.ithillel.travelapp.model.entity.TravelEntry;
 import ua.ithillel.travelapp.model.entity.User;
+import ua.ithillel.travelapp.repo.TravelEntryMySqlJpaRepo;
+import ua.ithillel.travelapp.repo.TravelEntryRepo;
 import ua.ithillel.travelapp.repo.UserMySqlJpaRepo;
 import ua.ithillel.travelapp.repo.UserRepo;
 
-import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +21,7 @@ public class Main {
                         = Persistence.createEntityManagerFactory("travelapp");) {
 
             UserRepo userRepo = new UserMySqlJpaRepo(entityManagerFactory);
+            TravelEntryRepo entryRepo = new TravelEntryMySqlJpaRepo(entityManagerFactory);
 
 //            User user = new User();
 //            user.setName("Max1 Mustermann1");
@@ -41,6 +43,16 @@ public class Main {
 //            userRepo.save(user);
 
             User user = userRepo.find(6L);
+
+            List<TravelEntry> byUserId = entryRepo.findByUserId(user.getId());
+
+            TravelEntry travelEntry = new TravelEntry();
+            travelEntry.setEntryDate(new Date());
+            travelEntry.setDescription("sfsf");
+            travelEntry.setTitle("drsffsrgr");
+            travelEntry.setUser(user);
+
+            entryRepo.save(travelEntry);
 
             System.out.println();
 

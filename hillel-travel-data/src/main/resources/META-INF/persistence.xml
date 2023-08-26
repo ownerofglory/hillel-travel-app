@@ -9,12 +9,15 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>ua.ithillel.travelapp.model.entity.User</class>
         <class>ua.ithillel.travelapp.model.entity.TravelEntry</class>
+        <class>ua.ithillel.travelapp.model.entity.Comment</class>
+        <class>ua.ithillel.travelapp.model.entity.Location</class>
+        <class>ua.ithillel.travelapp.model.entity.Like</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hilleltraveldb" />
-            <property name="javax.persistence.jdbc.user" value="hillel" />
-            <property name="javax.persistence.jdbc.password" value="Hillel123" />
+            <property name="javax.persistence.jdbc.user" value="user" />
+            <property name="javax.persistence.jdbc.password" value="password" />
             <property name="hibernate.show_sql" value="true" />
         </properties>
 
