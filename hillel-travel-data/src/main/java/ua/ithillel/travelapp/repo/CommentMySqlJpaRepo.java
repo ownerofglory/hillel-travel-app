@@ -1,23 +1,22 @@
 package ua.ithillel.travelapp.repo;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
+import lombok.RequiredArgsConstructor;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.model.entity.Comment;
-import ua.ithillel.travelapp.model.entity.TravelEntry;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class CommentMySqlJpaRepo implements CommentRepo {
-    private final EntityManagerFactory entityManagerFactory;
-
-    public CommentMySqlJpaRepo(EntityManagerFactory entityManagerFactory) {
-        this.entityManagerFactory = entityManagerFactory;
-    }
+    private final SessionFactory sessionFactory;
 
     @Override
     public List<Comment> findByTravelEntryId(Long entryId) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 
@@ -41,7 +40,7 @@ public class CommentMySqlJpaRepo implements CommentRepo {
 
     @Override
     public Comment save(Comment comment) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 
@@ -61,7 +60,7 @@ public class CommentMySqlJpaRepo implements CommentRepo {
 
     @Override
     public Comment remove(Comment comment) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 

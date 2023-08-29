@@ -9,16 +9,10 @@ import org.springframework.stereotype.Repository;
 import ua.ithillel.travelapp.model.entity.User;
 
 
-//@Component
 @Repository
 @RequiredArgsConstructor
 public class UserMySqlJpaRepo implements UserRepo {
-//    private final EntityManagerFactory entityManagerFactory;
     private final SessionFactory sessionFactory;
-
-//    public UserMySqlJpaRepo(EntityManagerFactory entityManagerFactory) {
-//        this.entityManagerFactory = entityManagerFactory;
-//    }
 
 
     @Override

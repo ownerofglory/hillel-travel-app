@@ -1,22 +1,22 @@
 package ua.ithillel.travelapp.repo;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
+import lombok.RequiredArgsConstructor;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.model.entity.TravelEntry;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class TravelEntryMySqlJpaRepo implements TravelEntryRepo {
-    private final EntityManagerFactory entityManagerFactory;
-
-    public TravelEntryMySqlJpaRepo(EntityManagerFactory entityManagerFactory) {
-        this.entityManagerFactory = entityManagerFactory;
-    }
+    private final SessionFactory sessionFactory;
 
     @Override
     public TravelEntry find(Long id) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 
@@ -31,7 +31,7 @@ public class TravelEntryMySqlJpaRepo implements TravelEntryRepo {
 
     @Override
     public List<TravelEntry> findByUserId(Long userId) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 
@@ -55,7 +55,7 @@ public class TravelEntryMySqlJpaRepo implements TravelEntryRepo {
 
     @Override
     public TravelEntry save(TravelEntry travelEntry) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 
@@ -75,7 +75,7 @@ public class TravelEntryMySqlJpaRepo implements TravelEntryRepo {
 
     @Override
     public TravelEntry remove(TravelEntry travelEntry) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 
