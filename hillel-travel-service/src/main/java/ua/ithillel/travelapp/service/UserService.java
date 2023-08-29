@@ -5,5 +5,5 @@ import ua.ithillel.travelapp.model.dto.UserDTO;
 
 public interface UserService {
     UserDTO getUserById(Long id);
-    public UserDTO addUser(UserDTO user);
+    UserDTO addUser(UserDTO user);
 }
