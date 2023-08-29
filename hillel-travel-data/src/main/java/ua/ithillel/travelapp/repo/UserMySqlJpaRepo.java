@@ -2,19 +2,28 @@ package ua.ithillel.travelapp.repo;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import lombok.RequiredArgsConstructor;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import ua.ithillel.travelapp.model.entity.User;
 
-public class UserMySqlJpaRepo implements UserRepo {
-    private final EntityManagerFactory entityManagerFactory;
 
-    public UserMySqlJpaRepo(EntityManagerFactory entityManagerFactory) {
-        this.entityManagerFactory = entityManagerFactory;
-    }
+//@Component
+@Repository
+@RequiredArgsConstructor
+public class UserMySqlJpaRepo implements UserRepo {
+//    private final EntityManagerFactory entityManagerFactory;
+    private final SessionFactory sessionFactory;
+
+//    public UserMySqlJpaRepo(EntityManagerFactory entityManagerFactory) {
+//        this.entityManagerFactory = entityManagerFactory;
+//    }
 
 
     @Override
     public User save(User user) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 
@@ -33,7 +42,7 @@ public class UserMySqlJpaRepo implements UserRepo {
 
     @Override
     public User find(Long id) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 

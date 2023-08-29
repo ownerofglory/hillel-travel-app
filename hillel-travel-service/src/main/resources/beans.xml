@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!--    <bean id="someClient" scope="singleton" class="ua.ithillel.travelapp.client.SomeClientDefault" >-->
+
+<!--    </bean>-->
+
+<!--    <bean id="userService" scope="prototype" class="ua.ithillel.travelapp.service.UserInMemoryService">-->
+<!--        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;-->
+<!--        <property name="someClient" ref="someClient"/>-->
+<!--    </bean>-->
+
+    <!-- more bean definitions go here -->
+
+</beans>

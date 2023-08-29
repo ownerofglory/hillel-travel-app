@@ -3,7 +3,6 @@
              version="3.0"
 >
 
-
     <persistence-unit name="travelapp">
         <description>Hibernate Travel App Persistence</description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
@@ -16,8 +15,8 @@
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hilleltraveldb" />
-            <property name="javax.persistence.jdbc.user" value="user" />
-            <property name="javax.persistence.jdbc.password" value="password" />
+            <property name="javax.persistence.jdbc.user" value="hillel" />
+            <property name="javax.persistence.jdbc.password" value="Hillel123" />
             <property name="hibernate.show_sql" value="true" />
         </properties>
 
