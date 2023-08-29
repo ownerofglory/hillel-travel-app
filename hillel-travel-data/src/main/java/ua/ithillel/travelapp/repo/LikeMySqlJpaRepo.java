@@ -1,22 +1,22 @@
 package ua.ithillel.travelapp.repo;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
+import lombok.RequiredArgsConstructor;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.model.entity.Like;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class LikeMySqlJpaRepo implements LikeRepo {
-    private final EntityManagerFactory entityManagerFactory;
-
-    public LikeMySqlJpaRepo(EntityManagerFactory entityManagerFactory) {
-        this.entityManagerFactory = entityManagerFactory;
-    }
+    private final SessionFactory sessionFactory;
 
     @Override
     public List<Like> findByTravelEntryId(Long travelEntryId) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 
@@ -40,7 +40,7 @@ public class LikeMySqlJpaRepo implements LikeRepo {
 
     @Override
     public Like save(Like like) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 
@@ -60,7 +60,7 @@ public class LikeMySqlJpaRepo implements LikeRepo {
 
     @Override
     public Like remove(Like like) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = sessionFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
 
