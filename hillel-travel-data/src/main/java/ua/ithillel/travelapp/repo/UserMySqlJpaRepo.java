@@ -14,7 +14,6 @@ import ua.ithillel.travelapp.model.entity.User;
 public class UserMySqlJpaRepo implements UserRepo {
     private final SessionFactory sessionFactory;
 
-
     @Override
     public User save(User user) {
         EntityManager entityManager = sessionFactory.createEntityManager();
