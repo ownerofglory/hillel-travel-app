@@ -16,14 +16,14 @@ public abstract class UserMapper {
     @Autowired
     protected TravelEntryMapper travelEntryMapper;
 
-//    @Mapping(source = "travelEntries", target = "travelEntries", qualifiedByName = "travelEntriesToTravelEntriesDTO")
+    @Mapping(source = "travelEntries", target = "travelEntries", qualifiedByName = "travelEntriesToTravelEntriesDTO")
     public abstract UserDTO userToUserDTO(User user);
     public abstract User userDTOToUser(UserDTO userDTO);
 
-//    @Named("travelEntriesToTravelEntriesDTO")
-//    public List<TravelEntryDTO> travelEntriesToTravelEntriesDTO(List<TravelEntry> travelEntries) {
-//        return travelEntries.stream()
-//                .map(travelEntryMapper::travelEntryToTravelEntryDTO)
-//                .toList();
-//    }
+    @Named("travelEntriesToTravelEntriesDTO")
+    public List<TravelEntryDTO> travelEntriesToTravelEntriesDTO(List<TravelEntry> travelEntries) {
+        return travelEntries.stream()
+                .map(travelEntryMapper::travelEntryToTravelEntryDTO)
+                .toList();
+    }
 }

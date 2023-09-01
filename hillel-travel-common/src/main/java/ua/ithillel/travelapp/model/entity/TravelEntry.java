@@ -25,10 +25,10 @@ public class TravelEntry {
     @OneToMany(mappedBy = "travelEntry", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Location> locations;
 
-    @OneToMany(mappedBy = "travelEntry", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "travelEntry", fetch = FetchType.EAGER)
     private List<Comment> comments;
 
-    @OneToMany(mappedBy = "travelEntry", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "travelEntry", fetch = FetchType.EAGER)
     private List<Like> likes;
 
 

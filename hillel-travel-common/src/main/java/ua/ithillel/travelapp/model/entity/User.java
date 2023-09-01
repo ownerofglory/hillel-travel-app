@@ -3,6 +3,7 @@ package ua.ithillel.travelapp.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "user")
@@ -23,6 +24,4 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<TravelEntry> travelEntries;
-
-
 }
