@@ -21,12 +21,10 @@ public class UserServiceDefault implements UserService {
     }
 
     @Override
-    public UserDTO addUser(UserDTO user) {
-        User user1 = new User();
-        user1.setEmail(user.getEmail());
-        user1.setName(user.getName());
-        User save = userRepo.save(user1);
+    public UserDTO addUser(UserDTO userDTO) {
+        User user = userMapper.userDTOToUser(userDTO);
+        User saveUser = userRepo.save(user);
 
-        return user;
+        return userMapper.userToUserDTO(saveUser);
     }
 }
