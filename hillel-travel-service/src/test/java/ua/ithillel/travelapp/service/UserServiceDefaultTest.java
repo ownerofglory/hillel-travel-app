@@ -17,7 +17,7 @@ public class UserServiceDefaultTest {
     @Mock
     private UserRepo userRepo;
     @InjectMocks
-    private UserService userService;
+    private UserServiceDefault userService;
 
     @BeforeEach
     public void setUp() {
@@ -30,7 +30,7 @@ public class UserServiceDefaultTest {
     }
 
     @Test
-    public void addUserTest_success(UserDTO user) {
+    public void addUserTest_success() {
 
     }
 
