@@ -15,7 +15,7 @@ public class CommentServiceDefaultTest {
     @Mock
     private CommentRepo commentRepo;
     @InjectMocks
-    private CommentService commentService;
+    private CommentServiceDefault commentService;
 
     @BeforeEach
     public void setUp() {

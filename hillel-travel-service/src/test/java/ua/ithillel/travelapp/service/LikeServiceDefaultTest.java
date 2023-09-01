@@ -15,7 +15,7 @@ public class LikeServiceDefaultTest {
     @Mock
     private LikeRepo likeRepo;
     @InjectMocks
-    private LikeService likeService;
+    private LikeServiceDefault likeService;
 
     @BeforeEach
     public void setUp() {

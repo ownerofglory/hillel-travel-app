@@ -7,8 +7,6 @@ import org.mockito.Mock;
 import ua.ithillel.travelapp.model.mapper.TravelEntryMapper;
 import ua.ithillel.travelapp.repo.TravelEntryRepo;
 
-import java.util.List;
-
 import static org.mockito.MockitoAnnotations.openMocks;
 
 public class TravelEntryServiceDefaultTest {
@@ -17,7 +15,7 @@ public class TravelEntryServiceDefaultTest {
     @Mock
     private TravelEntryRepo travelEntryRepo;
     @InjectMocks
-    private TravelEntryService travelEntryService;
+    private TravelEntryServiceDefault travelEntryService;
 
     @BeforeEach
     public void setUp() {

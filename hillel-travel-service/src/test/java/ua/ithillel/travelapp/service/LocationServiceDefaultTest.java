@@ -16,7 +16,7 @@ public class LocationServiceDefaultTest {
     @Mock
     private LocationRepo locationRepo;
     @InjectMocks
-    private LocationService locationService;
+    private LocationServiceDefault locationService;
 
     @BeforeEach
     public void setUp() {
