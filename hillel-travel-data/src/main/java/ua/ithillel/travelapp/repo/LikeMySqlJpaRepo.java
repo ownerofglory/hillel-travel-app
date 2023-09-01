@@ -4,12 +4,13 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.model.entity.Like;
 
 import java.util.List;
 
-@Service
+@Repository
 @RequiredArgsConstructor
 public class LikeMySqlJpaRepo implements LikeRepo {
     private final SessionFactory sessionFactory;

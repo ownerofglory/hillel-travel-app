@@ -4,12 +4,13 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.model.entity.TravelEntry;
 
 import java.util.List;
 
-@Service
+@Repository
 @RequiredArgsConstructor
 public class TravelEntryMySqlJpaRepo implements TravelEntryRepo {
     private final SessionFactory sessionFactory;

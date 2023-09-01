@@ -1,15 +1,15 @@
 package ua.ithillel.travelapp.repo;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 import ua.ithillel.travelapp.model.entity.User;
 
 
 @Repository
+@Primary
 @RequiredArgsConstructor
 public class UserMySqlJpaRepo implements UserRepo {
     private final SessionFactory sessionFactory;

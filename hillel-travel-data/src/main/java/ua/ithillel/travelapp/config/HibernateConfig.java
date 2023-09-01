@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import ua.ithillel.travelapp.model.entity.*;
 
 import java.util.Properties;
 
@@ -39,6 +40,11 @@ public class HibernateConfig {
 //        props.put("hibernate.current_session_context_class", "thread");
 
         configuration.setProperties(props);
+        configuration.addAnnotatedClass(User.class);
+        configuration.addAnnotatedClass(TravelEntry.class);
+        configuration.addAnnotatedClass(Location.class);
+        configuration.addAnnotatedClass(Comment.class);
+        configuration.addAnnotatedClass(Like.class);
 
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         System.out.println("Hibernate Java Config serviceRegistry created");

@@ -4,12 +4,12 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import ua.ithillel.travelapp.model.entity.Comment;
 
 import java.util.List;
 
-@Service
+@Repository
 @RequiredArgsConstructor
 public class CommentMySqlJpaRepo implements CommentRepo {
     private final SessionFactory sessionFactory;
