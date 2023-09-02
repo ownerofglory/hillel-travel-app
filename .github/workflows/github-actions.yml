@@ -12,7 +12,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Compile project
-        run: mvn --batch-mode compile -Dmaven.test.skip=true
+        run: mvn --batch-mode compile
 
   test:
     needs: compile
@@ -38,4 +38,4 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build project
-        run: mvn --batch-mode package -Dmaven.test.skip=true
+        run: mvn --batch-mode package
