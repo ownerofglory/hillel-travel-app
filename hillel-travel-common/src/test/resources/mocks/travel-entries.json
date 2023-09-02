@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "A Trip to Paris",
+    "description": "Visited the Eiffel Tower and Louvre Museum.",
+    "entryDate": "2023-08-01",
+    "commentCount": 5,
+    "likeCount": 120,
+    "locations": [
+      {
+        "id": 1,
+        "latitude": 48.8584,
+        "longitude": 2.2945,
+        "locationName": "Eiffel Tower"
+      },
+      {
+        "id": 2,
+        "latitude": 48.8606,
+        "longitude": 2.3376,
+        "locationName": "Louvre Museum"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Beach Vacation in Bali",
+    "description": "Relaxed on the sandy beaches and enjoyed water sports.",
+    "entryDate": "2023-07-15",
+    "commentCount": 10,
+    "likeCount": 200,
+    "locations": [
+      {
+        "id": 3,
+        "latitude": -8.3405,
+        "longitude": 115.0920,
+        "locationName": "Ubud"
+      },
+      {
+        "id": 4,
+        "latitude": -8.6913,
+        "longitude": 115.1685,
+        "locationName": "Seminyak"
+      }
+    ]
+  }
+]
