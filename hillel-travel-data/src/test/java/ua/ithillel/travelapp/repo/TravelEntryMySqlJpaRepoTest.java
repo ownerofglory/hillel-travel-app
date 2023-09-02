@@ -19,7 +19,7 @@ public class TravelEntryMySqlJpaRepoTest extends SpringRepoTestParent {
     }
 
     @Test
-    public void findByUserIdTest_success(Long userId) {
+    public void findByUserIdTest_success() {
 
     }
 

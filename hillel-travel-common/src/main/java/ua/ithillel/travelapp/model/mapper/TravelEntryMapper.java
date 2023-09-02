@@ -14,7 +14,7 @@ import ua.ithillel.travelapp.model.entity.TravelEntry;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {LocationMapper.class})
 public abstract class TravelEntryMapper {
     @Autowired
     protected LocationMapper locationMapper;

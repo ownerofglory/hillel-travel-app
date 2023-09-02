@@ -10,7 +10,9 @@ import ua.ithillel.travelapp.model.entity.User;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring",
+        unmappedTargetPolicy = ReportingPolicy.IGNORE,
+        uses = {TravelEntryMapper.class})
 @RequiredArgsConstructor
 public abstract class UserMapper {
     @Autowired

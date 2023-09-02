@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "username": "JohnDoe",
+    "email": "johndoe@example.com",
+    "password": "password123",
+    "travelEntries": [
+      {
+        "id": 1,
+        "title": "A Trip to Paris",
+        "description": "Visited the Eiffel Tower and Louvre Museum.",
+        "entryDate": "2023-08-01"
+      },
+      {
+        "id": 2,
+        "title": "Exploring New York",
+        "description": "Walked around Central Park and visited the Statue of Liberty.",
+        "entryDate": "2023-06-15"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "username": "JaneSmith",
+    "email": "janesmith@example.com",
+    "password": "securepass456",
+    "travelEntries": [
+      {
+        "id": 3,
+        "title": "Mountain Hiking",
+        "description": "Hiked up the beautiful Rocky Mountains.",
+        "entryDate": "2023-05-10"
+      }
+    ]
+  }
+]
