@@ -5,15 +5,13 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceTestUtil {
+public class MockDataTestUtil {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     static {
@@ -22,7 +20,7 @@ public class ServiceTestUtil {
 
 
     public static <T> List<T> getMockItems(String filePath, Class<T> clazz) {
-        try (InputStream inputStream = ServiceTestUtil.class
+        try (InputStream inputStream = clazz
                         .getClassLoader().getResourceAsStream(filePath);
         ) {
             TypeReference<List<T>> typeReference = getListTypeReference(clazz);

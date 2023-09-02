@@ -7,7 +7,7 @@ import ua.ithillel.travelapp.model.dto.UserDTO;
 import ua.ithillel.travelapp.model.entity.Location;
 import ua.ithillel.travelapp.model.entity.TravelEntry;
 import ua.ithillel.travelapp.model.entity.User;
-import ua.ithillel.travelapp.util.ServiceTestUtil;
+import ua.ithillel.travelapp.util.MockDataTestUtil;
 
 import java.util.List;
 
@@ -21,12 +21,12 @@ public class ServiceTestParent {
 
     @BeforeEach
     public void parentSetUp() {
-        mockUserDTOs = ServiceTestUtil.getMockItems("mocks/users.json", UserDTO.class);
-        mockTravelEntryDTOs = ServiceTestUtil.getMockItems("mocks/travel-entries.json", TravelEntryDTO.class);
-        mockLocationDTOs = ServiceTestUtil.getMockItems("mocks/locations.json", LocationDTO.class);
+        mockUserDTOs = MockDataTestUtil.getMockItems("mocks/users.json", UserDTO.class);
+        mockTravelEntryDTOs = MockDataTestUtil.getMockItems("mocks/travel-entries.json", TravelEntryDTO.class);
+        mockLocationDTOs = MockDataTestUtil.getMockItems("mocks/locations.json", LocationDTO.class);
 
-        mockUsers = ServiceTestUtil.getMockItems("mocks/users-db.json", User.class);
-        mockTravelEntries = ServiceTestUtil.getMockItems("mocks/travel-entries-db.json", TravelEntry.class);
-        mockLocations = ServiceTestUtil.getMockItems("mocks/locations-db.json", Location.class);
+        mockUsers = MockDataTestUtil.getMockItems("mocks/users-db.json", User.class);
+        mockTravelEntries = MockDataTestUtil.getMockItems("mocks/travel-entries-db.json", TravelEntry.class);
+        mockLocations = MockDataTestUtil.getMockItems("mocks/locations-db.json", Location.class);
     }
 }
