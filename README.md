@@ -19,7 +19,7 @@ The Java backend will manage user profiles, entries, and shared journals. Mapbox
 ## Architecture overview
 Application implements a full-stack app architecture with separate frontend and backend parts
 
-![architecture](./docs/architecture.png)
+<img src='./docs/architecture.png' width='600px'  alt="architecture"/>
 
 Frontend can be a webapp, a desktop client or a mobile application
 
@@ -31,61 +31,28 @@ Backend is a monolith Java Application that communicates with a MySQL database, 
 - `Location` represents a location that belongs to certain trip (`TravelEntry`)
 - `Comment` - represents a comment given by a user to a trip (`TravelEntry`)
 - `Like` - represents a like given by a user to a trip (`TravelEntry`)
-![entities](./docs/entities.png)
+<img src='./docs/entities.png' width='400px'  alt="entities"/>
 
 ### Entity class diagram
 Class diagram that represents entities and relationships between them
-![entity-class-diagram](./docs/entity-class-diagram.png)
+<img src='./docs/entity-class-diagram.png' width='600px'  alt="entity-class-diagram"/>
 
 ### MySQL Schema
-![dbschema](./docs/db-schema.png)
+<img src='./docs/db-schema.png' width='840'  alt="db-schema"/>
+
 
 ### Backend Layers
 Backend consists of 3 layers:
 - Controller (API, Resources, ...)
 - Business Logic (Services)
 - Data access (Repo, DAO, ...)
-![backendlayers](./docs/backend_layers.png)
+<img src='./docs/backend_layers.png' width='400px'  alt="backend_layers"/>
 
 ### Backend Domains
-![backendlayersdomain](./docs/backend-layers-domain.png)
+<img src='./docs/backend-layers-domain.png' width='480px'  alt="backend-layers-domain"/>
 
 ### Backend Layers detailed
-![backendlayersdeps](./docs/backend_layers_deps.png)
+<img src='./docs/backend_layers_deps.png' width='640px'  alt="backend_layers_deps"/>
 
 ### Backend data flow
-![backenddataflow](./docs/backend_data_flow.png)
-
-<style>
-    img[alt=architecture] {
-        width: 600px;
-    }
-
-    img[alt=entities] {
-        width: 400px;
-    }
-
-    img[alt='entity-class-diagram'] {
-        width: 400px;
-    }
-
-    img[alt='dbschema'] {
-        width: 720px;
-    }
-
-    img[alt='backendlayers'] {
-        width: 400px;
-    }
-
-    img[alt='backendlayersdomain'] {
-        width: 480px;
-    }
-
-    img[alt='backendlayersdeps'] {
-        width: 480px;
-    }
-
-    img[alt='backenddataflow'] {
-        width: 480px;
-    }
-</style>
+<img src='./docs/backend_data_flow.png' width='640px'  alt="backend_data_flow"/>
