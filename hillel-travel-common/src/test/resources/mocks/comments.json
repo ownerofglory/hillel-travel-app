@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "commentText": "Looks fun!",
+    "user": {
+      "id": 1,
+      "name": "john_doe",
+      "email": "john.doe@example.com",
+      "password": "password1"
+    }
+  },
+  {
+    "id": 2,
+    "commentText": "I am jealous!",
+    "user": {
+      "id": 2,
+      "name": "jane_doe",
+      "email": "jane.doe@example.com",
+      "password": "password2"
+    }
+  },
+  {
+    "id": 3,
+    "commentText": "Amazing view!",
+    "user": {
+      "id": 3,
+      "name": "sarah_smith",
+      "email": "sarah.smith@example.com",
+      "password": "password3"
+    }
+  },
+  {
+    "id": 4,
+    "commentText": "Great place!",
+    "user": {
+      "id": 4,
+      "name": "mike_brown",
+      "email": "mike.brown@example.com",
+      "password": "password4"
+    }
+  }
+]

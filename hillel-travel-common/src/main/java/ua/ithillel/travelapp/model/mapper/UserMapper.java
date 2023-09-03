@@ -20,20 +20,13 @@ public abstract class UserMapper {
 
     @Mapping(source = "travelEntries", target = "travelEntries", qualifiedByName = "travelEntriesToTravelEntriesDTO")
     public abstract UserDTO userToUserDTO(User user);
-    @Mapping(source = "travelEntries", target = "travelEntries", qualifiedByName = "travelEntriesDTOToTravelEntries")
+    @Mapping(target = "travelEntries", ignore = true)
     public abstract User userDTOToUser(UserDTO userDTO);
 
     @Named("travelEntriesToTravelEntriesDTO")
     public List<TravelEntryDTO> travelEntriesToTravelEntriesDTO(List<TravelEntry> travelEntries) {
         return travelEntries.stream()
                 .map(travelEntryMapper::travelEntryToTravelEntryDTO)
-                .toList();
-    }
-
-    @Named("travelEntriesDTOToTravelEntries")
-    public List<TravelEntry> travelEntriesDTOToTravelEntries(List<TravelEntryDTO> travelEntriesDTO) {
-        return travelEntriesDTO.stream()
-                .map(travelEntryMapper::travelEntryDTOToTravelEntry)
                 .toList();
     }
 }

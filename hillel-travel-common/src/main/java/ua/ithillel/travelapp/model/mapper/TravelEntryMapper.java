@@ -12,6 +12,7 @@ import ua.ithillel.travelapp.model.entity.Like;
 import ua.ithillel.travelapp.model.entity.Location;
 import ua.ithillel.travelapp.model.entity.TravelEntry;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {LocationMapper.class})
@@ -24,11 +25,12 @@ public abstract class TravelEntryMapper {
     @Mapping(source = "locations", target = "locations", qualifiedByName = "locationToLocationsDTO")
     public abstract TravelEntryDTO travelEntryToTravelEntryDTO(TravelEntry travelEntry);
 
+
     public abstract TravelEntry travelEntryDTOToTravelEntry(TravelEntryDTO travelEntryDTO);
 
     @Named("commentsToCommentCount")
     public int commentsToCommentCount(List<Comment> comments) {
-        if (comments.isEmpty()) {
+        if (comments == null || comments.isEmpty()) {
             return 0;
         }
         return comments.size();
@@ -36,7 +38,7 @@ public abstract class TravelEntryMapper {
 
     @Named("likesToLikeCount")
     public int likesToLikeCount(List<Like> likes) {
-        if (likes.isEmpty()) {
+        if (likes == null || likes.isEmpty()) {
             return 0;
         }
         return likes.size();
@@ -44,6 +46,10 @@ public abstract class TravelEntryMapper {
 
     @Named("locationToLocationsDTO")
     public List<LocationDTO> locationToLocationsDTO(List<Location> locations) {
+        if (locations == null || locations.isEmpty()) {
+            return new ArrayList<>();
+        }
+
         return locations.stream().map(location ->
                 new Location(location.getId(),
                         location.getLatitude(),
