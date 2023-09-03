@@ -4,7 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.model.dto.CommentDTO;
 import ua.ithillel.travelapp.model.mapper.CommentMapper;
+import ua.ithillel.travelapp.model.mapper.TravelEntryMapper;
+import ua.ithillel.travelapp.model.mapper.UserMapper;
 import ua.ithillel.travelapp.repo.CommentRepo;
+import ua.ithillel.travelapp.repo.TravelEntryRepo;
+import ua.ithillel.travelapp.repo.UserRepo;
 
 import java.util.List;
 
@@ -13,6 +17,12 @@ import java.util.List;
 public class CommentServiceDefault implements CommentService {
     private final CommentRepo commentRepo;
     private final CommentMapper commentMapper;
+
+    private final TravelEntryRepo travelEntryRepo;
+    private final TravelEntryMapper travelEntryMapper;
+
+    private final UserRepo userRepo;
+    private final UserMapper userMapper;
 
     @Override
     public CommentDTO addComment(CommentDTO comment, Long travelEntryId, Long commenterId) {

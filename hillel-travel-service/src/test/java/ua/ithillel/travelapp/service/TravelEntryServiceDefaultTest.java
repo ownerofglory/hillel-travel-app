@@ -6,7 +6,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import ua.ithillel.travelapp.model.dto.TravelEntryDTO;
 import ua.ithillel.travelapp.model.mapper.TravelEntryMapper;
+import ua.ithillel.travelapp.model.mapper.UserMapper;
 import ua.ithillel.travelapp.repo.TravelEntryRepo;
+import ua.ithillel.travelapp.repo.UserRepo;
 
 import java.util.List;
 
@@ -19,18 +21,22 @@ public class TravelEntryServiceDefaultTest extends ServiceTestParent {
     private TravelEntryMapper travelEntryMapper;
     @Mock
     private TravelEntryRepo travelEntryRepo;
+    @Mock
+    private UserMapper userMapper;
+    @Mock
+    private UserRepo userRepo;
     @InjectMocks
     private TravelEntryServiceDefault travelEntryService;
 
     @BeforeEach
     public void setUp() {
         openMocks(this);
+
     }
 
     @Test
     public void createTravelEntryForUserIdTest_success() {
         TravelEntryDTO mockTravel = mockTravelEntryDTOs.get(0);
-        mockTravel.setId(null);
         mockTravel.getLocations().forEach(locationDTO -> locationDTO.setId(null));
 
         Long testUserId = 1000L;

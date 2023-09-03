@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import ua.ithillel.travelapp.model.entity.*;
-import ua.ithillel.travelapp.repo.TravelEntryRepo;
 
 import javax.sql.DataSource;
 
