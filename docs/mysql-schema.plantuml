@@ -1,0 +1,56 @@
+@startuml
+
+package "Database Schema" {
+
+entity t_user {
+    +id : INT
+    -username : VARCHAR(255)
+    -email : VARCHAR(255)
+    -password : VARCHAR(255)
+    -profile_picture : VARCHAR(512)
+    -created_at : DATETIME
+}
+
+class t_travel_entry {
+    +id : INT
+    -user_id : INT
+    -title : VARCHAR(255)
+    -description : TEXT
+    -entry_date : DATETIME
+    -created_at : DATETIME
+}
+
+class t_location {
+    +id : INT
+    -entry_id : INT
+    -latitude : DECIMAL(9,6)
+    -longitude : DECIMAL(9,6)
+    -location_name : VARCHAR(255)
+    -created_at : DATETIME
+}
+
+class t_comment {
+    +id : INT
+    -entry_id : INT
+    -user_id : INT
+    -comment_text : TEXT
+    -created_at : DATETIME
+}
+
+class t_like {
+    +id : INT
+    -entry_id : INT
+    -user_id : INT
+    -created_at : DATETIME
+}
+
+t_user "1" <-- "0..*" t_travel_entry : user_id
+t_travel_entry "1" <-- "0..*" t_location : entry_id
+t_travel_entry "1" <-- "0..*" t_comment : entry_id
+t_user "1" <-- "0..*" t_comment : user_id
+t_travel_entry "1" <-- "0..*" t_like : entry_id
+t_user "1" <-- "0..*" t_like : user_id
+
+}
+
+@enduml

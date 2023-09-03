@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+
+class User {
+    -name: String
+    -email: String
+    -entries: TravelEntry[]
+    -...
+}
+
+class TravelEntry {
+    -name: String
+    - locations: Location[]
+    -comments: Comment[]
+    -likes: Like[]
+    -...
+}
+
+class Location {
+    -name: String
+    -lat: double
+    -lon: double
+    -...
+}
+
+class Comment {
+    -text: String
+    -user: User
+    -entry: TravelEntry
+    -...
+}
+
+class Like {
+    -user: User
+    -entry: TravelEntry
+    -...
+}
+
+User o-- TravelEntry : entries
+TravelEntry o-- Location : locations
+TravelEntry o-- Comment : comments
+TravelEntry o-- Like: likes
+
+Comment o-- User: user
+Like o-- User: user
+
+@enduml

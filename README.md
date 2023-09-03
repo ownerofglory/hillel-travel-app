@@ -17,4 +17,41 @@ The Java backend will manage user profiles, entries, and shared journals. Mapbox
 - Comments & Likes: Engage with the community by leaving comments and likes on shared journals.
 
 ## Architecture overview
+Application implements a full-stack app architecture with separate frontend and backend parts
+
 ![](./docs/architecture.png)
+
+Frontend can be a webapp, a desktop client or a mobile application
+
+Backend is a monolith Java Application that communicates with a MySQL database, object storage and 3rd-party API
+
+### Backend Entities
+- `User` represents actual users that use the app
+- `TravelEntry` represents a trip. User can have multiple trips
+- `Location` represents a location that belongs to certain trip (`TravelEntry`)
+- `Comment` - represents a comment given by a user to a trip (`TravelEntry`)
+- `Like` - represents a like given by a user to a trip (`TravelEntry`)
+![](./docs/entities.png)
+
+### Entity class diagram
+Class diagram that represents entities and relationships between them
+![](./docs/entity-class-diagram.png)
+
+### MySQL Schema
+![](./docs/db-schema.png)
+
+### Backend Layers
+Backend consists of 3 layers:
+- Controller (API, Resources, ...)
+- Business Logic (Services)
+- Data access (Repo, DAO, ...)
+![](./docs/backend_layers.png)
+
+### Backend Domains
+![](./docs/backend-layers-domain.png)
+
+### Backend Layers detailed
+![](./docs/backend_layers_deps.png)
+
+### Backend data flow
+![](./docs/backend_data_flow.png)
