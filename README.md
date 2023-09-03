@@ -19,7 +19,7 @@ The Java backend will manage user profiles, entries, and shared journals. Mapbox
 ## Architecture overview
 Application implements a full-stack app architecture with separate frontend and backend parts
 
-![](./docs/architecture.png)
+![architecture](./docs/architecture.png)
 
 Frontend can be a webapp, a desktop client or a mobile application
 
@@ -31,27 +31,61 @@ Backend is a monolith Java Application that communicates with a MySQL database, 
 - `Location` represents a location that belongs to certain trip (`TravelEntry`)
 - `Comment` - represents a comment given by a user to a trip (`TravelEntry`)
 - `Like` - represents a like given by a user to a trip (`TravelEntry`)
-![](./docs/entities.png)
+![entities](./docs/entities.png)
 
 ### Entity class diagram
 Class diagram that represents entities and relationships between them
-![](./docs/entity-class-diagram.png)
+![entity-class-diagram](./docs/entity-class-diagram.png)
 
 ### MySQL Schema
-![](./docs/db-schema.png)
+![dbschema](./docs/db-schema.png)
 
 ### Backend Layers
 Backend consists of 3 layers:
 - Controller (API, Resources, ...)
 - Business Logic (Services)
 - Data access (Repo, DAO, ...)
-![](./docs/backend_layers.png)
+![backendlayers](./docs/backend_layers.png)
 
 ### Backend Domains
-![](./docs/backend-layers-domain.png)
+![backendlayersdomain](./docs/backend-layers-domain.png)
 
 ### Backend Layers detailed
-![](./docs/backend_layers_deps.png)
+![backendlayersdeps](./docs/backend_layers_deps.png)
 
 ### Backend data flow
-![](./docs/backend_data_flow.png)
+![backenddataflow](./docs/backend_data_flow.png)
+
+<style>
+    img[alt=architecture] {
+        width: 600px;
+    }
+
+    img[alt=entities] {
+        width: 400px;
+    }
+
+    img[alt='entity-class-diagram'] {
+        width: 400px;
+    }
+
+    img[alt='dbschema'] {
+        width: 720px;
+    }
+
+    img[alt='backendlayers'] {
+        width: 400px;
+    }
+
+    img[alt='backendlayersdomain'] {
+        width: 480px;
+    }
+
+    img[alt='backendlayersdeps'] {
+        width: 480px;
+    }
+
+    img[alt='backenddataflow'] {
+        width: 480px;
+    }
+</style>
