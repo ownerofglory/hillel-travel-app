@@ -14,6 +14,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 public class TravelEntryServiceDefaultTest extends ServiceTestParent {
@@ -32,6 +35,10 @@ public class TravelEntryServiceDefaultTest extends ServiceTestParent {
     public void setUp() {
         openMocks(this);
 
+        when(userRepo.find(anyLong())).thenReturn(mockUsers.get(0));
+        when(userRepo.save(any())).thenReturn(mockUsers.get(0));
+        when(travelEntryMapper.travelEntryToTravelEntryDTO(any())).thenReturn(mockTravelEntryDTOs.get(0));
+        when(travelEntryMapper.travelEntryDTOToTravelEntry(any())).thenReturn(mockTravelEntries.get(0));
     }
 
     @Test

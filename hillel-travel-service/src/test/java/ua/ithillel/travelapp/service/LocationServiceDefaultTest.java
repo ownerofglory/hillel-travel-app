@@ -15,6 +15,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 public class LocationServiceDefaultTest extends ServiceTestParent {
@@ -28,6 +30,9 @@ public class LocationServiceDefaultTest extends ServiceTestParent {
     @BeforeEach
     public void setUp() {
         openMocks(this);
+
+        when(locationMapper.locationToLocationDTO(any())).thenReturn(mockLocationDTOs.get(0));
+        when(locationMapper.locationDTOToLocation(any())).thenReturn(mockLocations.get(0));
     }
 
     @Test
