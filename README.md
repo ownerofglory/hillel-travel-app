@@ -16,6 +16,19 @@ The Java backend will manage user profiles, entries, and shared journals. Mapbox
 - Search & Explore: Users can explore public entries of other travelers, search for specific locations, and gain inspiration for future travels.
 - Comments & Likes: Engage with the community by leaving comments and likes on shared journals.
 
+## Run
+Environment variables
+```bash
+JPA_DB_PASSWORD=<password>
+JPA_DB_URL=jdbc:mysql://<host>:<port>/<database>
+JPA_DB_USERNAME=<username>
+JPA_DRIVER_NAME=<driverName>
+
+JDBC_URL=jdbc:mysql://<host>:<port>/<database>
+JDBC_USERNAME=<username>
+JDBC_PASSWORD=<password>
+```
+
 ## Architecture overview
 Application implements a full-stack app architecture with separate frontend and backend parts
 
