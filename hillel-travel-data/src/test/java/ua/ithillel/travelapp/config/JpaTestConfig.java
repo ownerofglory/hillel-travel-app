@@ -7,21 +7,15 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import ua.ithillel.travelapp.model.entity.*;
 
 import javax.sql.DataSource;
 
 @Configuration
-public class JpaTestConfig {
+public class JpaTestConfig extends DataSourceConfigParent {
     @Bean
     public SessionFactory sessionFactory() {
-        DataSource datasource = new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .addScript("schema.sql")
-                .addScript("data.sql")
-                .build();
+        DataSource datasource = createH2Datasource();
 
         var config = new org.hibernate.cfg.Configuration();
 

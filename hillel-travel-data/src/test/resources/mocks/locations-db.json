@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "latitude": 48.8584,
+    "longitude": 2.2945,
+    "location_name": "Eiffel Tower",
+    "travelEntry": {
+      "id": 1,
+      "title": "A Trip to Paris",
+      "description": "Visited the Eiffel Tower and the Louvre Museum.",
+      "entry_date": "2023-08-01"
+    }
+  },
+  {
+    "id": 2,
+    "latitude": 48.8606,
+    "longitude": 2.3376,
+    "location_name": "Louvre Museum",
+    "travelEntry": {
+      "id": 1,
+      "title": "A Trip to Paris",
+      "description": "Visited the Eiffel Tower and the Louvre Museum.",
+      "entry_date": "2023-08-01"
+    }
+  },
+  {
+    "id": 3,
+    "latitude": 40.7829,
+    "longitude": -73.9654,
+    "location_name": "Central Park",
+    "travelEntry": {
+      "id": 2,
+      "title": "Exploring New York",
+      "description": "Walked around Central Park and visited the Statue of Liberty.",
+      "entry_date": "2023-06-15"
+    }
+  },
+  {
+    "id": 4,
+    "latitude": 40.6892,
+    "longitude": -74.0445,
+    "location_name": "Statue of Liberty",
+    "travelEntry": {
+      "id": 2,
+      "title": "Exploring New York",
+      "description": "Walked around Central Park and visited the Statue of Liberty.",
+      "entry_date": "2023-06-15"
+    }
+  }
+]

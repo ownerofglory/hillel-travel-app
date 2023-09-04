@@ -1,15 +1,19 @@
 package ua.ithillel.travelapp.model.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "user")
 @Table(name = "t_user")
 @Data
-@ToString(exclude = "password")
+@ToString(exclude = {"id", "password", "travelEntries"})
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

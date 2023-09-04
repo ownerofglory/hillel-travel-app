@@ -21,7 +21,7 @@ public class UserJdbcDao implements UserRepo {
     public User save(User user) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        String sql = "INSERT INTO t_user (name, email, password) " +
+        String sql = "INSERT INTO t_user (username, email, password) " +
                 "VALUES (?, ?, ?) ";
         jdbcTemplate.update(conn -> {
             PreparedStatement preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -32,9 +32,9 @@ public class UserJdbcDao implements UserRepo {
             return preparedStatement;
         }, keyHolder);
 
-        Number key = keyHolder.getKey();
+        Number key = (Number) keyHolder.getKeys().get("ID");
         if (key != null) {
-            user.setId((Long) key);
+            user.setId((Long.valueOf((int) key)));
         }
         return user;
     }

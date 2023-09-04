@@ -5,7 +5,6 @@ import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.model.entity.TravelEntry;
 
 import java.util.List;
@@ -21,7 +20,11 @@ public class TravelEntryMySqlJpaRepo implements TravelEntryRepo {
         try {
             entityManager.getTransaction().begin();
 
+            TravelEntry travelEntry = entityManager.find(TravelEntry.class, id);
+
             entityManager.getTransaction().commit();
+
+            return travelEntry;
         } catch (Exception e) {
             entityManager.getTransaction().rollback();
         } finally {

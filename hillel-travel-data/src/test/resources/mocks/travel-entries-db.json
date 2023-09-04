@@ -1,0 +1,89 @@
+[
+  {
+    "id": 1,
+    "title": "A Trip to Paris",
+    "description": "Visited the Eiffel Tower and Louvre Museum.",
+    "entry_date": "2023-08-01",
+    "user": {
+      "id": 1,
+      "name": "JohnDoe",
+      "email": "johndoe@example.com",
+      "password": "password123"
+    },
+    "locations": [
+      {
+        "id": 1,
+        "latitude": 48.8584,
+        "longitude": 2.2945,
+        "location_name": "Eiffel Tower"
+      },
+      {
+        "id": 2,
+        "latitude": 48.8606,
+        "longitude": 2.3376,
+        "location_name": "Louvre Museum"
+      }
+    ],
+    "comments": [
+      {
+        "id": 1,
+        "comment_text": "Sounds like a fun trip!"
+      },
+      {
+        "id": 2,
+        "comment_text": "Wish I was there too!"
+      }
+    ],
+    "likes": [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Exploring New York",
+    "description": "Walked around Central Park and visited the Statue of Liberty.",
+    "entry_date": "2023-06-15",
+    "user": {
+      "id": 2,
+      "name": "JaneSmith",
+      "email": "janesmith@example.com",
+      "password": "securepass456"
+    },
+    "locations": [
+      {
+        "id": 3,
+        "latitude": 40.7829,
+        "longitude": -73.9654,
+        "location_name": "Central Park"
+      },
+      {
+        "id": 4,
+        "latitude": 40.6892,
+        "longitude": -74.0445,
+        "location_name": "Statue of Liberty"
+      }
+    ],
+    "comments": [
+      {
+        "id": 3,
+        "comment_text": "New York is always amazing!"
+      }
+    ],
+    "likes": [
+      {
+        "id": 4
+      },
+      {
+        "id": 5
+      }
+    ]
+  }
+]

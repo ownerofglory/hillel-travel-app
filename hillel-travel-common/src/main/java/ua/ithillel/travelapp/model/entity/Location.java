@@ -20,6 +20,6 @@ public class Location {
     private String locationName;
 
     @ManyToOne
-    @JoinColumn(name = "entry_id", nullable = false)
+    @JoinColumn(name = "entry_id")
     private TravelEntry travelEntry;
 }

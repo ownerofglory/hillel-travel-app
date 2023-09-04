@@ -1,11 +1,17 @@
 package ua.ithillel.travelapp.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity(name = "comment")
 @Table(name = "t_comment")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString(exclude = {"id"})
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

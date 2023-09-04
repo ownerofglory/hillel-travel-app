@@ -24,7 +24,7 @@ CREATE TABLE t_location (
                             longitude DECIMAL(9,6),
                             location_name VARCHAR(255),
                             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                            FOREIGN KEY (entry_id) REFERENCES t_travel_entry(id)
+                            FOREIGN KEY (entry_id) REFERENCES t_travel_entry(id)  ON DELETE CASCADE
 );
 
 CREATE TABLE t_comment (
@@ -33,8 +33,8 @@ CREATE TABLE t_comment (
                            user_id INT,
                            comment_text TEXT,
                            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                           FOREIGN KEY (entry_id) REFERENCES t_travel_entry(id),
-                           FOREIGN KEY (user_id) REFERENCES t_user(id)
+                           FOREIGN KEY (entry_id) REFERENCES t_travel_entry(id) ON DELETE CASCADE ,
+                           FOREIGN KEY (user_id) REFERENCES t_user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE t_like (
@@ -42,6 +42,6 @@ CREATE TABLE t_like (
                         entry_id INT,
                         user_id INT,
                         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                        FOREIGN KEY (entry_id) REFERENCES t_travel_entry(id),
-                        FOREIGN KEY (user_id) REFERENCES t_user(id)
+                        FOREIGN KEY (entry_id) REFERENCES t_travel_entry(id) ON DELETE CASCADE ,
+                        FOREIGN KEY (user_id) REFERENCES t_user(id) ON DELETE CASCADE
 );

@@ -1,7 +1,10 @@
 package ua.ithillel.travelapp.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
@@ -9,6 +12,9 @@ import java.util.List;
 @Entity(name = "travelEntry")
 @Table(name = "t_travel_entry")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(exclude = {"id", "user", "comments", "likes"})
 public class TravelEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

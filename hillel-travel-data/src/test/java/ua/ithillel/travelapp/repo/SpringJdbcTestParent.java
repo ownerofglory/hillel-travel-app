@@ -1,22 +1,20 @@
 package ua.ithillel.travelapp.repo;
 
-import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import ua.ithillel.travelapp.config.JpaTestConfig;
+import org.springframework.jdbc.core.JdbcTemplate;
+import ua.ithillel.travelapp.jdbc.mapper.UserRowMapper;
 import ua.ithillel.travelapp.model.entity.*;
 import ua.ithillel.travelapp.util.MockDataTestUtil;
 
 import java.util.List;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {JpaTestConfig.class})
-public class SpringRepoTestParent {
-    @Autowired
-    protected SessionFactory sessionFactory;
+//@ExtendWith(SpringExtension.class)
+//@ContextConfiguration(classes = {JdbcTestConfig.class})
+public class SpringJdbcTestParent {
+//    @Autowired
+    protected JdbcTemplate jdbcTemplate;
+//    @Autowired
+    protected UserRowMapper userMapper;
 
     protected List<User> mockUsers;
     protected List<TravelEntry> mockTravelEntries;
@@ -31,6 +29,5 @@ public class SpringRepoTestParent {
         mockLocations = MockDataTestUtil.getMockItems("mocks/locations-db.json", Location.class);
         mockComments = MockDataTestUtil.getMockItems("mocks/comments.json", Comment.class);
         mockLikes = MockDataTestUtil.getMockItems("mocks/likes.json", Like.class);
-
     }
 }
