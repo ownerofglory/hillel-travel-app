@@ -8,4 +8,5 @@ public interface CommentRepo {
     List<Comment> findByTravelEntryId(Long id);
     Comment save(Comment comment);
     Comment remove(Comment comment);
+    Comment find(Long id);
 }

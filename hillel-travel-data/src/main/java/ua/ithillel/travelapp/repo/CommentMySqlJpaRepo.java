@@ -77,4 +77,24 @@ public class CommentMySqlJpaRepo implements CommentRepo {
         }
         return null;
     }
+
+    @Override
+    public Comment find(Long id) {
+        EntityManager entityManager = sessionFactory.createEntityManager();
+        try {
+            entityManager.getTransaction().begin();
+
+            Comment comment = entityManager.find(Comment.class, id);
+            entityManager.flush();
+
+            entityManager.getTransaction().commit();
+
+            return comment;
+        } catch (Exception e) {
+            entityManager.getTransaction().rollback();
+        } finally {
+            entityManager.close();
+        }
+        return null;
+    }
 }
