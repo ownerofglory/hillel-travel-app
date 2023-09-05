@@ -48,7 +48,7 @@ public class LocationServiceDefaultTest extends ServiceTestParent {
 
     @Test
     public void getLocationByIdTest_success() {
-        Long testId = 2000L;
+        Long testId = mockLocationDTOs.get(0).getId();
 
         LocationDTO locationById = locationService.getLocationById(testId);
 

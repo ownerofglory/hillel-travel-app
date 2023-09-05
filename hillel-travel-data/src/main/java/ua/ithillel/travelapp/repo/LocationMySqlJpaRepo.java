@@ -5,7 +5,6 @@ import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.model.entity.Location;
 
 import java.util.List;
@@ -36,6 +35,25 @@ public class LocationMySqlJpaRepo implements LocationRepo {
             entityManager.getTransaction().commit();
 
             return resultList;
+        } catch (Exception e) {
+            entityManager.getTransaction().rollback();
+        } finally {
+            entityManager.close();
+        }
+        return null;
+    }
+
+    @Override
+    public Location find(Long id) {
+        EntityManager entityManager = sessionFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        try {
+
+            Location location = entityManager.find(Location.class, id);
+
+            entityManager.getTransaction().commit();
+
+            return location;
         } catch (Exception e) {
             entityManager.getTransaction().rollback();
         } finally {

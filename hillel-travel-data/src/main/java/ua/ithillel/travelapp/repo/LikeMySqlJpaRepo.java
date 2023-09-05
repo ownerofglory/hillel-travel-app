@@ -5,7 +5,6 @@ import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.model.entity.Like;
 
 import java.util.List;
@@ -14,6 +13,25 @@ import java.util.List;
 @RequiredArgsConstructor
 public class LikeMySqlJpaRepo implements LikeRepo {
     private final SessionFactory sessionFactory;
+
+    @Override
+    public Like find(Long id) {
+        EntityManager entityManager = sessionFactory.createEntityManager();
+        try {
+            entityManager.getTransaction().begin();
+
+            Like like = entityManager.find(Like.class, id);
+
+            entityManager.getTransaction().commit();
+
+            return like;
+        } catch (Exception e) {
+            entityManager.getTransaction().rollback();
+        } finally {
+            entityManager.close();
+        }
+        return null;
+    }
 
     @Override
     public List<Like> findByTravelEntryId(Long travelEntryId) {

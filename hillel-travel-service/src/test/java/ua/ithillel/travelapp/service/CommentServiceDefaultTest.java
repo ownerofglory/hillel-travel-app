@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import ua.ithillel.travelapp.exception.EntityNotFoundException;
+import ua.ithillel.travelapp.exception.InconsistencyException;
 import ua.ithillel.travelapp.model.dto.CommentDTO;
 import ua.ithillel.travelapp.model.dto.TravelEntryDTO;
 import ua.ithillel.travelapp.model.dto.UserDTO;
@@ -47,7 +49,7 @@ public class CommentServiceDefaultTest extends ServiceTestParent {
     }
 
     @Test
-    public void addCommentTest_success() {
+    public void addCommentTest_success() throws EntityNotFoundException {
         CommentDTO commentDTO = mockCommentDTOs.get(0);
         TravelEntryDTO travelEntry = mockTravelEntryDTOs.get(0);
         UserDTO user = mockUserDTOs.get(0);
@@ -60,7 +62,7 @@ public class CommentServiceDefaultTest extends ServiceTestParent {
     }
 
     @Test
-    public void  editCommentTest_success() {
+    public void  editCommentTest_success() throws InconsistencyException, EntityNotFoundException {
         CommentDTO commentDTO = mockCommentDTOs.get(0);
 
         CommentDTO editedComment = commentService.editComment(commentDTO.getId(), commentDTO);
@@ -70,7 +72,7 @@ public class CommentServiceDefaultTest extends ServiceTestParent {
     }
 
     @Test
-    public void  deleteCommentTest_success() {
+    public void  deleteCommentTest_success() throws EntityNotFoundException {
         Long testCommentId = mockCommentDTOs.get(0).getId();
         CommentDTO commentDTO = commentService.deleteComment(testCommentId);
 

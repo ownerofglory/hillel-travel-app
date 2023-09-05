@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import ua.ithillel.travelapp.exception.EntityNotFoundException;
 import ua.ithillel.travelapp.model.dto.LikeDTO;
 import ua.ithillel.travelapp.model.mapper.LikeMapper;
 import ua.ithillel.travelapp.model.mapper.UserMapper;
@@ -45,11 +46,11 @@ public class LikeServiceDefaultTest extends ServiceTestParent {
     }
 
     @Test
-    public void toggleLikeTest_success() {
+    public void likeTest_success() throws EntityNotFoundException {
         Long testTravelEntryId = mockTravelEntries.get(0).getId();
         Long testUserId = mockUsers.get(0).getId();
 
-        LikeDTO likeDTO = likeService.toggleLike(testTravelEntryId, testUserId);
+        LikeDTO likeDTO = likeService.like(testTravelEntryId, testUserId);
 
         assertNotNull(likeDTO);
         assertEquals(likeDTO.getUser().getId(), testUserId);
