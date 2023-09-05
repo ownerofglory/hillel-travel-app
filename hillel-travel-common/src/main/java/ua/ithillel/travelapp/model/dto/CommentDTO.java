@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 public class CommentDTO {
     private Long id;
     private String commentText;
+    private Long travelEntryId;
+    private Long userId;
 
     private UserDTO user;
 }

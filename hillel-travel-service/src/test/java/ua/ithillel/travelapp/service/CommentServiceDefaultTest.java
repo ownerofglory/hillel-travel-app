@@ -53,7 +53,7 @@ public class CommentServiceDefaultTest extends ServiceTestParent {
         CommentDTO commentDTO = mockCommentDTOs.get(0);
         TravelEntryDTO travelEntry = mockTravelEntryDTOs.get(0);
         UserDTO user = mockUserDTOs.get(0);
-        CommentDTO newComment = new CommentDTO(null, commentDTO.getCommentText(), user);
+        CommentDTO newComment = new CommentDTO(null, commentDTO.getCommentText(), travelEntry.getId(), user.getId(), user);
 
         CommentDTO savedComment = commentService.addComment(newComment, travelEntry.getId(), user.getId());
 

@@ -8,5 +8,6 @@ import java.util.List;
 public interface LikeService {
     LikeDTO like(Long travelEntryId, Long ownId) throws EntityNotFoundException;
     LikeDTO dislike(LikeDTO likeDTO) throws EntityNotFoundException;
+    LikeDTO dislike(Long id) throws EntityNotFoundException;
     List<LikeDTO> getLikesByTravelEntryId(Long travelEntryId);
 }

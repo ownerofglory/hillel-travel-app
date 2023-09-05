@@ -75,6 +75,17 @@ public class LikeServiceDefault implements LikeService {
     }
 
     @Override
+    public LikeDTO dislike(Long id) throws EntityNotFoundException {
+        Like existingLike = likeRepo.find(id);
+        if (existingLike == null) {
+            throw new EntityNotFoundException(String.format("Like with id %d not found", id));
+        }
+        Like removed = likeRepo.remove(existingLike);
+
+        return likeMapper.likeToLikeDTO(removed);
+    }
+
+    @Override
     public List<LikeDTO> getLikesByTravelEntryId(Long travelEntryId) {
         List<Like> byTravelEntryId = likeRepo.findByTravelEntryId(travelEntryId);
 
