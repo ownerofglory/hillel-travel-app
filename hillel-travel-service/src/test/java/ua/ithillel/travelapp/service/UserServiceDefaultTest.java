@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import ua.ithillel.travelapp.exception.EntityNotFoundException;
 import ua.ithillel.travelapp.model.dto.UserDTO;
 import ua.ithillel.travelapp.model.entity.User;
 import ua.ithillel.travelapp.model.mapper.UserMapper;
@@ -36,7 +37,7 @@ public class UserServiceDefaultTest extends ServiceTestParent {
     }
 
     @Test
-    public void getUserByIdTest_success() {
+    public void getUserByIdTest_success() throws EntityNotFoundException {
         User user = mockUsers.get(0);
         Long testId = user.getId();
         UserDTO userById = userService.getUserById(testId);

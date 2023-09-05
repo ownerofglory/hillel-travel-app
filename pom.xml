@@ -13,6 +13,7 @@
         <module>hillel-travel-common</module>
         <module>hillel-travel-data</module>
         <module>hillel-travel-service</module>
+        <module>hillel-travel-web</module>
     </modules>
 
     <properties>
@@ -47,6 +48,16 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
                 <version>${spring.version}</version>
                 <scope>test</scope>
@@ -55,6 +66,12 @@
                 <groupId>jakarta.persistence</groupId>
                 <artifactId>jakarta.persistence-api</artifactId>
                 <version>${jpa.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>6.0.0</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.hibernate.orm</groupId>
@@ -169,6 +186,12 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.4.0</version>
+                </plugin>
+
             </plugins>
         </pluginManagement>
     </build>

@@ -16,6 +16,7 @@ public class TravelEntryDTO {
 
     private Integer commentCount;
     private Integer likeCount;
+    private Long userId;
 
     private List<LocationDTO> locations;
 }

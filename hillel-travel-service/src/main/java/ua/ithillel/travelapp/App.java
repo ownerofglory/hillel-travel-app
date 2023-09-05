@@ -1,13 +1,10 @@
 package ua.ithillel.travelapp;
 
-import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ua.ithillel.travelapp.exception.EntityNotFoundException;
 import ua.ithillel.travelapp.model.dto.UserDTO;
-import ua.ithillel.travelapp.repo.UserMySqlJpaRepo;
-import ua.ithillel.travelapp.repo.UserRepo;
 import ua.ithillel.travelapp.service.UserService;
-import ua.ithillel.travelapp.service.UserServiceDefault;
 
 public class App {
     public static void main( String[] args )
@@ -23,7 +20,11 @@ public class App {
 ////        List<User> allUser = userService.getAllUser();
 //
         UserService userService = applicationContext.getBean(UserService.class);
-        UserDTO userById = userService.getUserById(6L);
+        try {
+            UserDTO userById = userService.getUserById(6L);
+        } catch (EntityNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 //
 
         System.out.println();

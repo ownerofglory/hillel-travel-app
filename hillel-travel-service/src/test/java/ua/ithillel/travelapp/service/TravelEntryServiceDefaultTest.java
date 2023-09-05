@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import ua.ithillel.travelapp.exception.EntityNotFoundException;
 import ua.ithillel.travelapp.model.dto.TravelEntryDTO;
 import ua.ithillel.travelapp.model.mapper.TravelEntryMapper;
 import ua.ithillel.travelapp.model.mapper.UserMapper;
@@ -42,7 +43,7 @@ public class TravelEntryServiceDefaultTest extends ServiceTestParent {
     }
 
     @Test
-    public void createTravelEntryForUserIdTest_success() {
+    public void createTravelEntryForUserIdTest_success() throws EntityNotFoundException {
         TravelEntryDTO mockTravel = mockTravelEntryDTOs.get(0);
         mockTravel.getLocations().forEach(locationDTO -> locationDTO.setId(null));
 
