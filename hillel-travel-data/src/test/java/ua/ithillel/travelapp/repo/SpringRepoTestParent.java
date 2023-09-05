@@ -29,8 +29,8 @@ public class SpringRepoTestParent {
         mockUsers = MockDataTestUtil.getMockItems("mocks/users-db.json", User.class);
         mockTravelEntries = MockDataTestUtil.getMockItems("mocks/travel-entries-db.json", TravelEntry.class);
         mockLocations = MockDataTestUtil.getMockItems("mocks/locations-db.json", Location.class);
-        mockComments = MockDataTestUtil.getMockItems("mocks/comments.json", Comment.class);
-        mockLikes = MockDataTestUtil.getMockItems("mocks/likes.json", Like.class);
+        mockComments = MockDataTestUtil.getMockItems("mocks/comments-db.json", Comment.class);
+        mockLikes = MockDataTestUtil.getMockItems("mocks/likes-db.json", Like.class);
 
     }
 }
