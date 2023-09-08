@@ -1,6 +1,7 @@
 package ua.ithillel.travelapp.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.exception.EntityNotFoundException;
 import ua.ithillel.travelapp.model.dto.TravelEntryDTO;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class TravelEntryServiceDefault implements TravelEntryService {
     private final TravelEntryRepo travelEntryRepo;
     private final TravelEntryMapper travelEntryMapper;
