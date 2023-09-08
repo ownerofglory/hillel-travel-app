@@ -1,0 +1,34 @@
+# Use root/example as user/password credentials
+version: '3.1'
+services:
+
+  minio-hillel:
+    image: minio/minio
+    restart: always
+    container_name: hillel.minio
+    command: server --console-address ":9001" /data
+    ports:
+      - 9000:9000
+      - 9001:9001
+    environment:
+      - MINIO_ROOT_USER=XXXX
+      - MINIO_ROOT_PASSWORD=YYYY
+    volumes:
+      - minio-hillel-data:/data
+
+  hillel-create-buckets:
+    image: minio/mc
+    depends_on:
+      - minio-hillel
+    entrypoint: >
+      /bin/sh -c "
+      echo 'sleep';
+      sleep 5;
+      echo 'ok';
+      /usr/bin/mc config host add myminio http://minio-hillel:9000 XXXX YYYY --api s3v4;
+      /usr/bin/mc mb myminio/hille-travel-images;
+      /usr/bin/mc policy set download myminio/hille-travel-images/;
+      exit 0;
+      "
+volumes:
+  minio-hillel-data:
