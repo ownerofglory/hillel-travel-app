@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import ua.ithillel.travelapp.model.dto.FileUploadResultDTO;
 import ua.ithillel.travelapp.service.FileUploadService;
 
 @RequestMapping("/upload")
@@ -15,11 +16,11 @@ import ua.ithillel.travelapp.service.FileUploadService;
 public class FileUploadController {
     private final FileUploadService fileUploadService;
     @PostMapping
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file,
-                                             @RequestParam("name") String fileName) throws Exception {
+    public ResponseEntity<FileUploadResultDTO> uploadFile(@RequestParam("file") MultipartFile file,
+                                                          @RequestParam("name") String fileName) throws Exception {
 
-        String uploadedFileUrl = fileUploadService.uploadFile(file.getInputStream(), fileName, file.getSize(), file.getContentType());
+        FileUploadResultDTO uploadedFile = fileUploadService.uploadFile(file.getInputStream(), fileName, file.getSize(), file.getContentType());
 
-        return ResponseEntity.ok(uploadedFileUrl);
+        return ResponseEntity.ok(uploadedFile);
     }
 }

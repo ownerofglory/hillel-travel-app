@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ua.ithillel.travelapp.exception.AppException;
 import ua.ithillel.travelapp.exception.EntityNotFoundException;
+import ua.ithillel.travelapp.model.dto.FileUploadResultDTO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,7 +22,7 @@ public class FileUploadMinIoService implements FileUploadService {
     private final MinioClient minioClient;
 
     @Override
-    public String uploadFile(InputStream in, String fileName, long size, String contentType) throws EntityNotFoundException, AppException {
+    public FileUploadResultDTO uploadFile(InputStream in, String fileName, long size, String contentType) throws EntityNotFoundException, AppException {
         try {
             BucketExistsArgs arg = BucketExistsArgs.builder().bucket("hillel-travel-images").build();
 
@@ -40,9 +41,11 @@ public class FileUploadMinIoService implements FileUploadService {
 
             ObjectWriteResponse writeResponse = minioClient.putObject(putObjectArgs);
 
+            FileUploadResultDTO resultDTO = new FileUploadResultDTO();
+            resultDTO.setFileUrl("http://localhost:9000/hillel-travel-images/"
+                    + fileName.replace(" ", "%20"));
 
-            return "http://localhost:9000/hillel-travel-images/"
-                    + fileName.replace(" ", "%20");
+            return resultDTO;
 
         } catch (ServerException | InternalException | XmlParserException | InvalidResponseException |
                  InvalidKeyException | NoSuchAlgorithmException | IOException | ErrorResponseException |

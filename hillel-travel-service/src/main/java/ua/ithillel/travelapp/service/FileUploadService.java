@@ -1,7 +1,9 @@
 package ua.ithillel.travelapp.service;
 
+import ua.ithillel.travelapp.model.dto.FileUploadResultDTO;
+
 import java.io.InputStream;
 
 public interface FileUploadService {
-    String uploadFile(InputStream in, String fileName, long size, String contentType) throws Exception;
+    FileUploadResultDTO uploadFile(InputStream in, String fileName, long size, String contentType) throws Exception;
 }
