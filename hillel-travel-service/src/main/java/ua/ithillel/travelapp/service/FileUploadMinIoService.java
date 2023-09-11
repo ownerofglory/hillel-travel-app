@@ -7,6 +7,7 @@ import io.minio.PutObjectArgs;
 import io.minio.errors.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ua.ithillel.travelapp.config.MinioBucketInfo;
 import ua.ithillel.travelapp.exception.AppException;
 import ua.ithillel.travelapp.exception.EntityNotFoundException;
 import ua.ithillel.travelapp.model.dto.FileUploadResultDTO;
@@ -20,11 +21,12 @@ import java.security.NoSuchAlgorithmException;
 @RequiredArgsConstructor
 public class FileUploadMinIoService implements FileUploadService {
     private final MinioClient minioClient;
+    private final MinioBucketInfo minioBucketInfo;
 
     @Override
     public FileUploadResultDTO uploadFile(InputStream in, String fileName, long size, String contentType) throws EntityNotFoundException, AppException {
         try {
-            BucketExistsArgs arg = BucketExistsArgs.builder().bucket("hillel-travel-images").build();
+            BucketExistsArgs arg = BucketExistsArgs.builder().bucket(minioBucketInfo.getBucketName()).build();
 
             boolean found = minioClient.bucketExists(arg);
 
@@ -33,7 +35,7 @@ public class FileUploadMinIoService implements FileUploadService {
             }
 
             PutObjectArgs putObjectArgs = PutObjectArgs.builder()
-                    .bucket("hillel-travel-images")
+                    .bucket(minioBucketInfo.getBucketName())
                     .object(fileName)
                     .stream(in, size, -1)
                     .contentType(contentType)
@@ -42,8 +44,9 @@ public class FileUploadMinIoService implements FileUploadService {
             ObjectWriteResponse writeResponse = minioClient.putObject(putObjectArgs);
 
             FileUploadResultDTO resultDTO = new FileUploadResultDTO();
-            resultDTO.setFileUrl("http://localhost:9000/hillel-travel-images/"
-                    + fileName.replace(" ", "%20"));
+            String fileUrl = String.format("%s/%s/%s", minioBucketInfo.getUrl(),
+                    minioBucketInfo.getBucketName(), fileName.replace(" ", "%20"));
+            resultDTO.setFileUrl(fileUrl);
 
             return resultDTO;
 

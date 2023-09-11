@@ -18,11 +18,19 @@ public class MinioConfig {
     @Value("${minio.secretKey}")
     private String secretKey;
 
+    @Value("${minio.bucketName}")
+    private String minioBucketName;
+
     @Bean
     public MinioClient minioClient() {
         return MinioClient.builder()
                 .endpoint(minioEndpoint)
                 .credentials(minioAccessKey, secretKey)
                 .build();
+    }
+
+    @Bean
+    public MinioBucketInfo minioBucketInfo() {
+        return new MinioBucketInfo(minioEndpoint, minioBucketName);
     }
 }
