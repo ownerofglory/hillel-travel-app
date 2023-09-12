@@ -46,4 +46,10 @@ public class TravelEntryServiceDefault implements TravelEntryService {
         return byUserId.stream()
                 .map(travelEntryMapper::travelEntryToTravelEntryDTO).toList();
     }
+
+    @Override
+    public TravelEntryDTO getTravelEntryById(Long id) {
+        TravelEntry travelEntry = travelEntryRepo.find(id);
+        return travelEntryMapper.travelEntryToTravelEntryDTO(travelEntry);
+    }
 }

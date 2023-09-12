@@ -55,6 +55,7 @@ public abstract class TravelEntryMapper {
                         location.getLatitude(),
                         location.getLongitude(),
                         location.getLocationName(),
+                        location.getImageUrl(),
                         null))
                 .map(locationMapper::locationToLocationDTO)
                 .toList();

@@ -43,13 +43,14 @@ public class TravelEntryMySqlJpaRepoTest extends SpringRepoTestParent {
         TravelEntry travelEntry = mockTravelEntries.get(1);
         User testUser = travelEntry.getUser();
         List<Location> testLocations = travelEntry.getLocations().stream().map(location
-                        -> new Location(null, location.getLatitude(), location.getLongitude(), location.getLocationName(), null))
+                        -> new Location(null, location.getLatitude(), location.getLongitude(), location.getLocationName(), location.getImageUrl(), null))
                 .toList();
 
         TravelEntry newTravelEntry = new TravelEntry(null,
                 travelEntry.getTitle(),
                 travelEntry.getDescription(),
                 travelEntry.getEntryDate(),
+                travelEntry.getImageUrl(),
                 testUser,
                 testLocations,
                 new ArrayList<>(),

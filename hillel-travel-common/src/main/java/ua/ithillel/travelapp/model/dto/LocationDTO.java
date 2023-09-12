@@ -12,6 +12,7 @@ public class LocationDTO {
     private Double latitude;
     private Double longitude;
     private String locationName;
+    private String imageUrl;
 
     private TravelEntryDTO travelEntry;
 }

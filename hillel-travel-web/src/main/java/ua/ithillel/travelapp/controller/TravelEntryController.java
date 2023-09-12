@@ -33,6 +33,14 @@ public class TravelEntryController {
         return ResponseEntity.ok(entryDTO);
     }
 
+    @GetMapping("/{id}")
+    public @ResponseBody
+    ResponseEntity<TravelEntryDTO> get(@PathVariable("id") Long id) {
+        TravelEntryDTO travelEntryById = travelEntryService.getTravelEntryById(id);
+
+        return ResponseEntity.ok(travelEntryById);
+    }
+
 
 }
 

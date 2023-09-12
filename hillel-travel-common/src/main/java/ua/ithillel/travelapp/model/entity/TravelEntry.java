@@ -23,6 +23,8 @@ public class TravelEntry {
     private String description;
     @Column(name = "entry_date")
     private Date entryDate;
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)

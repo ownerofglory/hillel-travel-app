@@ -64,6 +64,7 @@ public class TravelEntryMySqlJpaRepo implements TravelEntryRepo {
             entityManager.getTransaction().begin();
 
             entityManager.persist(travelEntry);
+            travelEntry.getLocations().forEach(location -> location.setTravelEntry(travelEntry));
             entityManager.flush();
 
             entityManager.getTransaction().commit();

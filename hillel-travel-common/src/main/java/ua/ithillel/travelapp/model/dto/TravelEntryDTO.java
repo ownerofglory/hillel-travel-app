@@ -13,6 +13,7 @@ public class TravelEntryDTO {
     private String title;
     private String description;
     private Date entryDate;
+    private String imageUrl;
 
     private Integer commentCount;
     private Integer likeCount;

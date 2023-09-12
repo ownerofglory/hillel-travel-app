@@ -8,4 +8,5 @@ import java.util.List;
 public interface TravelEntryService {
     TravelEntryDTO createTravelEntryForUserId(Long userId, TravelEntryDTO entryDTO) throws EntityNotFoundException;
     List<TravelEntryDTO> getTravelEntriesByUserId(Long userId);
+    TravelEntryDTO getTravelEntryById(Long id);
 }
