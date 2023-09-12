@@ -28,7 +28,10 @@ public abstract class TravelEntryMapper {
 
     @Named("userToUserId")
     public Long userToUserId(User user) {
-        return user.getId();
+        if (user != null) {
+            return user.getId();
+        }
+        return -1L;
     }
 
     @Named("commentsToCommentCount")

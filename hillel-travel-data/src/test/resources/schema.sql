@@ -14,6 +14,7 @@ CREATE TABLE t_travel_entry (
                                 description TEXT,
                                 entry_date DATETIME,
                                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                                image_url VARCHAR(1024),
                                 FOREIGN KEY (user_id) REFERENCES t_user(id)
 );
 
@@ -24,6 +25,7 @@ CREATE TABLE t_location (
                             longitude DECIMAL(9,6),
                             location_name VARCHAR(255),
                             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                            image_url VARCHAR(1024),
                             FOREIGN KEY (entry_id) REFERENCES t_travel_entry(id)  ON DELETE CASCADE
 );
 
