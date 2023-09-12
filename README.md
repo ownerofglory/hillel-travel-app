@@ -69,3 +69,6 @@ Backend consists of 3 layers:
 
 ### Backend data flow
 <img src='./docs/backend_data_flow.png' width='640px'  alt="backend_data_flow"/>
+
+### Migration to SpringBoot
+<img src="./docs/module-dependencies.png" width="800px" alt="module dependencies">

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import ua.ithillel.travelapp.model.entity.User;
 
 
-@Repository
+@Repository // @Component
 @Primary
 @RequiredArgsConstructor
 public class UserMySqlJpaRepo implements UserRepo {

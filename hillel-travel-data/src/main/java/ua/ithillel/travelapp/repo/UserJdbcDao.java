@@ -11,7 +11,7 @@ import ua.ithillel.travelapp.model.entity.User;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 
-@Repository
+@Repository // @Component
 @RequiredArgsConstructor
 public class UserJdbcDao implements UserRepo {
     private final JdbcTemplate jdbcTemplate;

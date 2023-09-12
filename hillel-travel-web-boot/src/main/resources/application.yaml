@@ -1,0 +1,30 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 5MB
+  banner:
+    location: banner.txt
+
+server:
+  port: 8050
+  servlet:
+    context-path: /api
+
+logging:
+  level:
+    ua.ithillel.travelapp.service: DEBUG
+    ua.ithillel.travelapp.repo: INFO
+    org.springframework: INFO
+
+
+jpa:
+  driverName: ${JPA_DRIVER_NAME:com.mysql.cj.jdbc.Driver}
+  url: ${JPA_DB_URL}
+  username: ${JPA_DB_USERNAME:user}
+  password: ${JPA_DB_PASSWORD:password}
+
+minio:
+  endpoint: ${MINIO_URL:http://localhost:9000}
+  accessKey: ${MINIO_ACCESS_KEY}
+  secretKey: ${MINIO_SECRET_KEY}
+  bucketName: ${MINIO_BUCKET_NAME}
