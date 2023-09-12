@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import ua.ithillel.travelapp.model.dto.LikeDTO;
 import ua.ithillel.travelapp.model.entity.Like;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class LikeMapperTest extends MapperTestParent {

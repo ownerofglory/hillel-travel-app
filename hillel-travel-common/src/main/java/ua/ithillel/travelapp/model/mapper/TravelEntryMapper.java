@@ -7,10 +7,7 @@ import org.mapstruct.ReportingPolicy;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.ithillel.travelapp.model.dto.LocationDTO;
 import ua.ithillel.travelapp.model.dto.TravelEntryDTO;
-import ua.ithillel.travelapp.model.entity.Comment;
-import ua.ithillel.travelapp.model.entity.Like;
-import ua.ithillel.travelapp.model.entity.Location;
-import ua.ithillel.travelapp.model.entity.TravelEntry;
+import ua.ithillel.travelapp.model.entity.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +20,16 @@ public abstract class TravelEntryMapper {
     @Mapping(source = "comments", target = "commentCount", qualifiedByName = "commentsToCommentCount")
     @Mapping(source = "likes", target = "likeCount", qualifiedByName = "likesToLikeCount")
     @Mapping(source = "locations", target = "locations", qualifiedByName = "locationToLocationsDTO")
+    @Mapping(source = "user", target = "userId", qualifiedByName = "userToUserId")
     public abstract TravelEntryDTO travelEntryToTravelEntryDTO(TravelEntry travelEntry);
 
 
     public abstract TravelEntry travelEntryDTOToTravelEntry(TravelEntryDTO travelEntryDTO);
+
+    @Named("userToUserId")
+    public Long userToUserId(User user) {
+        return user.getId();
+    }
 
     @Named("commentsToCommentCount")
     public int commentsToCommentCount(List<Comment> comments) {
