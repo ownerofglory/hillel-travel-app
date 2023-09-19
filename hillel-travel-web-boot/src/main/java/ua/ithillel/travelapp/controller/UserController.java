@@ -1,6 +1,7 @@
 package ua.ithillel.travelapp.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,7 @@ import ua.ithillel.travelapp.service.UserService;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = {HttpHeaders.AUTHORIZATION, HttpHeaders.CONTENT_TYPE})
 public class UserController {
     private final UserService userService;
 

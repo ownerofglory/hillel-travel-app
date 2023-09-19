@@ -1,6 +1,7 @@
 package ua.ithillel.travelapp.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,7 +11,7 @@ import ua.ithillel.travelapp.service.FileUploadService;
 @RequestMapping("/upload")
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = {HttpHeaders.AUTHORIZATION, HttpHeaders.CONTENT_TYPE})
 public class FileUploadController {
     private final FileUploadService fileUploadService;
     @PostMapping

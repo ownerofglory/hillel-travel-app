@@ -1,5 +1,6 @@
 package ua.ithillel.travelapp.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,6 +12,7 @@ public class UserDTO {
     private Long id;
     private String name;
     private String email;
+    @JsonIgnore
     private String password;
 
     private List<TravelEntryDTO> travelEntries;

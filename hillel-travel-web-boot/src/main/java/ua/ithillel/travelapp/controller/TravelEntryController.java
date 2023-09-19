@@ -1,6 +1,7 @@
 package ua.ithillel.travelapp.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.ithillel.travelapp.exception.EntityNotFoundException;
@@ -12,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/travelEntries")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = {HttpHeaders.AUTHORIZATION, HttpHeaders.CONTENT_TYPE})
 public class TravelEntryController {
     private final TravelEntryService travelEntryService;
 

@@ -47,4 +47,9 @@ public class UserJdbcDao implements UserRepo {
                 userRowMapper);
         return user;
     }
+
+    @Override
+    public User findByUsername(String username) {
+        return null;
+    }
 }
