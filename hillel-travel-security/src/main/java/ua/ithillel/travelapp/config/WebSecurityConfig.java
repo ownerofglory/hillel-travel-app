@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -51,7 +52,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(reqs -> reqs
                         .requestMatchers(antMatcher("/register"), antMatcher("/login")).permitAll()
                         .anyRequest().authenticated())
-                .cors(conf -> conf.disable())
+                .cors(Customizer.withDefaults())
                 .sessionManagement(conf -> conf.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         http.addFilterBefore(new JwtFilter(jwtUtil, userDetailsService()),
